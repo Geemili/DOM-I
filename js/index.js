@@ -65,6 +65,8 @@ function main() {
 
     elm(".top-content :nth-child(2) h4").textContent = siteContent["main-content"][`about-h4`];
     elm(".top-content :nth-child(2) p").textContent = siteContent["main-content"][`about-content`];
+
+    elmSet("#middle-img", "src", siteContent["main-content"][`middle-img-src`]);
 }
 
 window.onload = main;
