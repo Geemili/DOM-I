@@ -59,6 +59,12 @@ function main() {
     elm(".cta h1").textContent = siteContent["cta"][`h1`];
     elm(".cta button").textContent = siteContent["cta"][`button`];
     elmSet(".cta img", "src", siteContent["cta"][`img-src`]);
+
+    elm(".top-content :nth-child(1) h4").textContent = siteContent["main-content"][`features-h4`];
+    elm(".top-content :nth-child(1) p").textContent = siteContent["main-content"][`features-content`];
+
+    elm(".top-content :nth-child(2) h4").textContent = siteContent["main-content"][`about-h4`];
+    elm(".top-content :nth-child(2) p").textContent = siteContent["main-content"][`about-content`];
 }
 
 window.onload = main;
