@@ -76,6 +76,14 @@ function main() {
 
     elm(".bottom-content :nth-child(3) h4").textContent = siteContent["main-content"][`vision-h4`];
     elm(".bottom-content :nth-child(3) p").textContent = siteContent["main-content"][`vision-content`];
+
+
+
+    const c = siteContent["contact"];
+    const paragraphs = [c["address"], c["phone"], c["email"]];
+
+    elm(".contact h4").textContent = c[`contact-h4`];
+    elms(".contact p").forEach((elm, idx) => {elm.textContent = paragraphs[idx];});
 }
 
 window.onload = main;
