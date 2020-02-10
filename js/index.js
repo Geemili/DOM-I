@@ -54,7 +54,10 @@ function main() {
     let logo = document.getElementById("logo-img");
     logo.setAttribute('src', siteContent["nav"]["img-src"]);
 
-    elms("nav a").forEach((elm, idx) => elm.textContent = siteContent["nav"][`nav-item-${idx}`]);
+    elms("nav a").forEach((elm, idx) => {
+        elm.textContent = siteContent["nav"][`nav-item-${idx+1}`];
+        elm.style.color = "green";
+    });
 
     // Call to action
     elm(".cta h1").textContent = siteContent["cta"][`h1`];
