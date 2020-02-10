@@ -50,24 +50,28 @@ function elms(query) {
 }
 
 function main() {
-    // Example: Update the img src for the logo
+    // Navbar
     let logo = document.getElementById("logo-img");
     logo.setAttribute('src', siteContent["nav"]["img-src"]);
 
     elms("nav a").forEach((elm, idx) => elm.textContent = siteContent["nav"][`nav-item-${idx}`]);
 
+    // Call to action
     elm(".cta h1").textContent = siteContent["cta"][`h1`];
     elm(".cta button").textContent = siteContent["cta"][`button`];
     elmSet(".cta img", "src", siteContent["cta"][`img-src`]);
 
+    // Top content
     elm(".top-content :nth-child(1) h4").textContent = siteContent["main-content"][`features-h4`];
     elm(".top-content :nth-child(1) p").textContent = siteContent["main-content"][`features-content`];
 
     elm(".top-content :nth-child(2) h4").textContent = siteContent["main-content"][`about-h4`];
     elm(".top-content :nth-child(2) p").textContent = siteContent["main-content"][`about-content`];
 
+    // Middle image
     elmSet("#middle-img", "src", siteContent["main-content"][`middle-img-src`]);
 
+    // Bottom content
     elm(".bottom-content :nth-child(1) h4").textContent = siteContent["main-content"][`services-h4`];
     elm(".bottom-content :nth-child(1) p").textContent = siteContent["main-content"][`services-content`];
 
@@ -78,7 +82,7 @@ function main() {
     elm(".bottom-content :nth-child(3) p").textContent = siteContent["main-content"][`vision-content`];
 
 
-
+    // Contact
     const c = siteContent["contact"];
     const paragraphs = [c["address"], c["phone"], c["email"]];
 
