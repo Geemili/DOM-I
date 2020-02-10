@@ -67,6 +67,15 @@ function main() {
     elm(".top-content :nth-child(2) p").textContent = siteContent["main-content"][`about-content`];
 
     elmSet("#middle-img", "src", siteContent["main-content"][`middle-img-src`]);
+
+    elm(".bottom-content :nth-child(1) h4").textContent = siteContent["main-content"][`services-h4`];
+    elm(".bottom-content :nth-child(1) p").textContent = siteContent["main-content"][`services-content`];
+
+    elm(".bottom-content :nth-child(2) h4").textContent = siteContent["main-content"][`product-h4`];
+    elm(".bottom-content :nth-child(2) p").textContent = siteContent["main-content"][`product-content`];
+
+    elm(".bottom-content :nth-child(3) h4").textContent = siteContent["main-content"][`vision-h4`];
+    elm(".bottom-content :nth-child(3) p").textContent = siteContent["main-content"][`vision-content`];
 }
 
 window.onload = main;
