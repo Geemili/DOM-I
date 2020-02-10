@@ -37,13 +37,28 @@ const siteContent = {
   },
 };
 
+function elm(query) {
+    return document.querySelector(query);
+}
+
+function elmSet(query, attr, value) {
+    return document.querySelector(query).setAttribute(attr, value);
+}
+
+function elms(query) {
+    return document.querySelectorAll(query);
+}
 
 function main() {
     // Example: Update the img src for the logo
     let logo = document.getElementById("logo-img");
     logo.setAttribute('src', siteContent["nav"]["img-src"]);
 
-    document.querySelectorAll("nav a").forEach((elm, idx) => elm.textContent = siteContent["nav"][`nav-item-${idx}`]);
+    elms("nav a").forEach((elm, idx) => elm.textContent = siteContent["nav"][`nav-item-${idx}`]);
+
+    elm(".cta h1").textContent = siteContent["cta"][`h1`];
+    elm(".cta button").textContent = siteContent["cta"][`button`];
+    elmSet(".cta img", "src", siteContent["cta"][`img-src`]);
 }
 
 window.onload = main;
