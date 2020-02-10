@@ -84,6 +84,9 @@ function main() {
 
     elm(".contact h4").textContent = c[`contact-h4`];
     elms(".contact p").forEach((elm, idx) => {elm.textContent = paragraphs[idx];});
+
+    // Footer
+    elm("footer p").textContent = siteContent["footer"][`copyright`];
 }
 
 window.onload = main;
