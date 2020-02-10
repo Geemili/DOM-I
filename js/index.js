@@ -59,6 +59,20 @@ function main() {
         elm.style.color = "green";
     });
 
+    // Create two new links for before and after
+    const helloLink = document.createElement("a");
+    helloLink.textContent = "Hello";
+    helloLink.setAttribute("href", "#");
+    helloLink.style.color = "green";
+    const worldLink = document.createElement("a");
+    worldLink.textContent = "World";
+    worldLink.setAttribute("href", "#");
+    worldLink.style.color = "green";
+
+    elm("nav").prepend(helloLink);
+    elm("nav").appendChild(worldLink);
+
+
     // Call to action
     elm(".cta h1").textContent = siteContent["cta"][`h1`];
     elm(".cta button").textContent = siteContent["cta"][`button`];
