@@ -37,6 +37,13 @@ const siteContent = {
   },
 };
 
-// Example: Update the img src for the logo
-let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+function main() {
+    // Example: Update the img src for the logo
+    let logo = document.getElementById("logo-img");
+    logo.setAttribute('src', siteContent["nav"]["img-src"]);
+
+    document.querySelectorAll("nav a").forEach((elm, idx) => elm.textContent = siteContent["nav"][`nav-item-${idx}`]);
+}
+
+window.onload = main;
