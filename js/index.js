@@ -37,6 +37,77 @@ const siteContent = {
   },
 };
 
-// Example: Update the img src for the logo
-let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+function elm(query) {
+    return document.querySelector(query);
+}
+
+function elmSet(query, attr, value) {
+    return document.querySelector(query).setAttribute(attr, value);
+}
+
+function elms(query) {
+    return document.querySelectorAll(query);
+}
+
+function main() {
+    // Navbar
+    let logo = document.getElementById("logo-img");
+    logo.setAttribute('src', siteContent["nav"]["img-src"]);
+
+    elms("nav a").forEach((elm, idx) => {
+        elm.textContent = siteContent["nav"][`nav-item-${idx+1}`];
+        elm.style.color = "green";
+    });
+
+    // Create two new links for before and after
+    const helloLink = document.createElement("a");
+    helloLink.textContent = "Hello";
+    helloLink.setAttribute("href", "#");
+    helloLink.style.color = "green";
+    const worldLink = document.createElement("a");
+    worldLink.textContent = "World";
+    worldLink.setAttribute("href", "#");
+    worldLink.style.color = "green";
+
+    elm("nav").prepend(helloLink);
+    elm("nav").appendChild(worldLink);
+
+
+    // Call to action
+    elm(".cta h1").textContent = siteContent["cta"][`h1`];
+    elm(".cta button").textContent = siteContent["cta"][`button`];
+    elmSet(".cta img", "src", siteContent["cta"][`img-src`]);
+
+    // Top content
+    elm(".top-content :nth-child(1) h4").textContent = siteContent["main-content"][`features-h4`];
+    elm(".top-content :nth-child(1) p").textContent = siteContent["main-content"][`features-content`];
+
+    elm(".top-content :nth-child(2) h4").textContent = siteContent["main-content"][`about-h4`];
+    elm(".top-content :nth-child(2) p").textContent = siteContent["main-content"][`about-content`];
+
+    // Middle image
+    elmSet("#middle-img", "src", siteContent["main-content"][`middle-img-src`]);
+
+    // Bottom content
+    elm(".bottom-content :nth-child(1) h4").textContent = siteContent["main-content"][`services-h4`];
+    elm(".bottom-content :nth-child(1) p").textContent = siteContent["main-content"][`services-content`];
+
+    elm(".bottom-content :nth-child(2) h4").textContent = siteContent["main-content"][`product-h4`];
+    elm(".bottom-content :nth-child(2) p").textContent = siteContent["main-content"][`product-content`];
+
+    elm(".bottom-content :nth-child(3) h4").textContent = siteContent["main-content"][`vision-h4`];
+    elm(".bottom-content :nth-child(3) p").textContent = siteContent["main-content"][`vision-content`];
+
+
+    // Contact
+    const c = siteContent["contact"];
+    const paragraphs = [c["address"], c["phone"], c["email"]];
+
+    elm(".contact h4").textContent = c[`contact-h4`];
+    elms(".contact p").forEach((elm, idx) => {elm.textContent = paragraphs[idx];});
+
+    // Footer
+    elm("footer p").textContent = siteContent["footer"][`copyright`];
+}
+
+window.onload = main;
